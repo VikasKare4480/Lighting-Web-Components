@@ -1,0 +1,22 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-24-2026
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div>
+        {name}
+    </div>
+
+    <template for:each={userList} for:item="user" for:index="index"> 
+        <div key={user.name}>
+            {user.Name} {user.Email} {user.Age} 
+        </div>
+    </template>
+
+     <lightning-button variant="brand" label="Change Name" title="Change Name" onclick={handleOnClick}></lightning-button>
+
+
+</template>
