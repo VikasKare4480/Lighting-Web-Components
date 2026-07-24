@@ -1,0 +1,30 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-24-2026
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <a href="http://google.com" onclick={handleAnchorClick}> </a>
+
+    <lightning-combobox name="Salutation" label="Salutation" value={value} options={salutationOptions}></lightning-combobox>
+    <lightning-input type="text" variant="brand" name="FirstName" label="Enter First Name" required="true" placeholder="Enter first Name....." onchange={handleOnChange}></lightning-input>    
+    <lightning-input type="text" variant="brand" name="LastName" label="Enter Last Name" required="true" placeholder="Enter last Name....."></lightning-input>    
+    <lightning-input type="email" name="Email" label="Email Address" required="true" placeholder="abc@gmail.com"></lightning-input>
+    <lightning-input type="phone" name="Phone" label="Enter Phone" required="true"></lightning-input>
+    <lightning-combobox
+        name="Enter your Gender"
+        label="Enter Gender"
+        value={value}
+        options={options}
+        onchange={handleCombochange} ></lightning-combobox>
+        <lightning-input 
+        type="checkbox"
+        label="Are you married"
+        name="isMarried"
+        checked="true"
+        onchange={handleMarried}
+        ></lightning-input>
+    <lightning-button variant="brand" label="Create Account" title="Create Account" onclick={handleCreateAccout}></lightning-button>
+</template>
