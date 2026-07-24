@@ -1,0 +1,107 @@
+<!--
+    @description       : THIS CONTAINS THE PRACTICE CODE FOR THE CODITIONAL RENDERING
+    @author            : VIKAS KARE
+    @group             : ----
+    @last modified on  : 07-24-2026
+    @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+    -->
+    <template>
+        <div style="color: Orange;
+                    font-size: large;
+                    margin: 2px;">
+            HELLO EVERYONE!!! GODD AFTERNOON</div>
+        <lightning-button label="Show Indian Flag" onclick={handleIndianFlag}></lightning-button> 
+        <lightning-button label="Show Russiun Flag" onclick={handleRussianFlag}></lightning-button> 
+        <lightning-button label="Show American Flag" onclick={handleAmericanFlag}></lightning-button> 
+
+        <!-- CONDITIONAL RENDERING -->
+
+        <template if:true={showIndianFlag}>
+            <img alt="IndianFlag" width="200" height="200" src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" >
+        </template>
+         <template if:true={showAmericanFlag}>
+            <img alt="AmericanFlag" width="200" height="200" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Flag_of_the_United_States_%28DDD-F-416E_specifications%29.svg" >
+        </template>
+         <template if:true={showRussianFlag}>
+            <img alt="RussianFlag" width="200" height="200" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg">      
+        </template>
+        <!-- <template if:false={showIndianFlag}>
+            <img alt="IndianFlag" width="200" height="200" src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" >
+            <img alt="AmericanFlag" width="200" height="200" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Flag_of_the_United_States_%28DDD-F-416E_specifications%29.svg" >
+            <img alt="RussianFlag" width="200" height="200" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg">      
+        </template> -->
+
+        <!-- CONDTIONAL RENDERRING LWC IF ELSE LOOP-->
+
+        <template lwc:if={showIndianFlag}>
+            <img alt="IndianFlag" width="200" height="200" src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" >
+        </template>
+        <template lwc:elseif={showAmericanFlag}>
+            <img alt="AmericanFlag" width="200" height="200" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Flag_of_the_United_States_%28DDD-F-416E_specifications%29.svg" >
+        </template>
+        <template lwc:elseif={showRussianFlag}>
+            <img alt="RussianFlag" width="200" height="200" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg">   
+        </template>
+
+        <template lwc:if={showAccounts}>
+            <!-- Show the accouts -->
+        </template>
+        <template lwc:elseif={showContacts}>
+            <!-- show the contacts -->
+        </template>
+        <template lwc:elseif={showopportunities}>
+            <!-- show the  opportunities -->
+        </template>
+        <template lwc:else>
+            <!-- show the business data -->
+        </template>
+
+        <!-- TERATE THROUG THE FOR EACH LOOP IN HTML TEMPLATE -->
+
+        <template for:each={allUsers} for:item="user">
+            <div key={user.Name} class="slds-m-around_medium" style="color:blue">
+                {user.Name}
+                {user.Email}
+            </div>
+        </template>
+
+        <template for:each={systemUserData} for:item="single" for:index="index">
+            <div key={single.Email} class="slds-m-around_medium">
+                {index} - {single} |{single.Name} | {single.Email} | {single.gender}
+            </div>
+        </template>
+
+        <!-- <div>{systemUserData.Name} | {systemUserData.Email} | {systemUserData.gender}</div> -->
+
+        <!-- ITERATOR IN LWC TEMPLATE -->
+
+        <h3>ITERATE USING ITERATOR</h3>
+        <template iterator:contact={systemUserData} for:index="index">
+            <div key={contact.value.Email} class="slds-m-around_medium">
+                <div if:true={contact.first}>
+                    {index} - First Value : {contact.value .Name} {contact.value.Email} {contact.value.gender}
+                </div>      
+                <div if:true={contact.last}>
+                    {index} - Last Value : {contact.value.Name} {contact.value.Email} {contact.value.gender}
+                </div>
+            </div>
+        </template>
+
+        <lightning-input type="text" variant="standard" name="Enter Name" label="Enter Name" placeholder="Enter your name...."></lightning-input>
+
+
+        <lightning-input 
+          type="email" 
+          label="Email address"
+          placeholder="Enter your email"
+        ></lightning-input>
+        <lightning-input-name
+            label="Enter your Name"
+            first-name="Raj"
+            middle-name="Madan"
+            last-name="Jadhav"
+            informal-name="Jo"
+            suffix="The 3rd"
+            salutation="Mr."
+            options={salutationOptions} ></lightning-input-name>
+</template>
