@@ -1,0 +1,23 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-24-2026
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card  variant="Narrow"  title="Child Component" icon-name="standard:account">
+        <div class="slds-p-horizontal_small">
+            Card Body Narrow (custom component)
+            <template for:each={userList} for:item="user">
+                <div key={user.Email}>
+                    {user.Name} - {user.Email} - {user.Age}
+                </div>
+            </template>
+            <slot style="color: red;"></slot>
+            <slot name="orders" style="color:green;"></slot>
+        </div>
+        <div slot="footer">Child Card Footer</div>
+    </lightning-card>
+</template>
+

@@ -1,0 +1,22 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-24-2026
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card  variant="Narrow"  title="Parent Component" icon-name="standard:account">
+        <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+        <div class="slds-p-horizontal_small">
+            <P>
+                Parent Component
+            </P>
+            <c-child set-user-list={users}>
+                <p>I'm from Parent component</p>
+                <p slot="orders">THIS IS ORDERS SLOT</p>
+            </c-child>
+        </div>
+        <div slot="footer">Parent Card Footer</div>
+    </lightning-card>
+</template>
