@@ -4,7 +4,11 @@ export default class ChildOne extends LightningElement {
 
     handleFireEvent() {
 
-        let firstCustomEvent = new CustomEvent('FirstEvent'); // bubbles : false and cacelable : false
-        this.dispatchEvent(firstCustomEvent); // THIS WILL BE CAPTURED ON PARENT COMPONENT
+        let clickEvent = new CustomEvent('click', {
+            detail : {
+                Name : 'Vikas'
+            }
+        });
+        this.dispatchEvent(clickEvent); // THIS WILL BE CAPTURED ON PARENT COMPONENT
     }
 }
