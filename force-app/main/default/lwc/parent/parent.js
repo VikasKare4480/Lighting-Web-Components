@@ -7,4 +7,15 @@ export default class Parent extends LightningElement {
         {Name : 'Atul Nehete', Email : 'atul@gmail.com', Age : 25},
         {Name : 'Tejas Jadhav', Email : 'tejas@gmail.com', Age : 23}
     ];
+
+    handleCallChildMethod = (event) => {
+        console.log(' inside handleCallChildMethod');
+        const childComponent = this.template.querySelector('c-child');
+        console.log('childComponent -> ' , childComponent);
+        if(childComponent) {    
+            let name = 'Vikas kare';
+            let age = 24;
+            childComponent.callChildMethod(name, age);
+        }
+    }
 }

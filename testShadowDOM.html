@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div {
+                font-size: 50px;
+                color: pink;
+                align-items: center !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="ShadowDOM"></div>
+        <script>    
+            const element = document.querySelector('#ShadowDOM');
+            const shadowRoot = element.attachShadow({mode : 'open'});
+            shadowRoot.innerHTML = 'How shadow dom works with Normal Browser';
+        </script>
+    </body>
+</html>

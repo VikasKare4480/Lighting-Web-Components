@@ -16,8 +16,11 @@ export default class Child extends LightningElement {
         this.userList = userList || [];
     }
 
-    handleOnClick(event) {
-        event.preventDefault();
-        this.name   = 'Laxman Kare';
+    // CALLING THE METHOD FROM PARENT(MUST NOT USE THE ARROW METHODS) 
+    @api
+    callChildMethod(para1, para2) {
+        console.log('Method was called from parent');
+        console.log(para1);
+        console.log(para2);
     }
 }

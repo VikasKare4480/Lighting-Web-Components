@@ -2,7 +2,7 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 07-24-2026
+  @last modified on  : 07-25-2026
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
 <template>
@@ -16,6 +16,7 @@
                 <p>I'm from Parent component</p>
                 <p slot="orders">THIS IS ORDERS SLOT</p>
             </c-child>
+            <lightning-button variant="brand" label="callChildMethod" title="Call Child Method" onclick={handleCallChildMethod}></lightning-button>
         </div>
         <div slot="footer">Parent Card Footer</div>
     </lightning-card>

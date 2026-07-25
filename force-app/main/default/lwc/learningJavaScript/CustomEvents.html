@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Onclick Events</h1>
+<h2>Property Access Using Dots</h2>
+
+<p id="demo"></p>
+
+<!-- बटनवरील onClick काढून टाकले आहे, कारण आपण खाली JavaScript मधून ते मॅनेज करत आहोत -->
+<button id="clickme">Click me</button>
+<input type="text" onchange="handleOnChange(this)">
+<input type="text" onchange="handleOnChange(this)">
+
+<button id="customEvent" onclick="dispatchCustomEvent()">Dispatch Custom Event</button>
+
+
+<p class="para1"> This is Start of the Paragraph 1 </p>
+<p class="para1"> This is Start of the Paragraph 2</p>
+<!-- ID युनिक केले आहेत (para3 आणि para4) -->
+<p id="para3" class="para1"> This is Start of the Paragraph 3</p>
+
+<p data-record-id="1" class="para1"> This is Start of the Paragraph 3</p>
+
+<p id="para4" class="para1"> This is Start of the Paragraph 3</p>
+
+<!-- पॅरामीटर्स पास करताना event हा कीवर्ड लिहिणे आवश्यक आहे -->
+<p data-record-id="1" data-record-name="name1" data-record-phone="9999999999" class="para1" onclick="handleOnClick(event)"> This is Start of the Paragraph 1</p>
+
+<p data-record-id="2" data-record-name="name2" data-record-phone="9999999999" class="para1" onclick="handleOnClick(event)"> This is Start of the Paragraph 2</p>
+
+<p data-record-id="3" data-record-name="name3" data-record-phone="9999999999" class="para1" onclick="handleOnClick(event)"> This is Start of the Paragraph 3</p>
+<p id="blankPara"> </p>
+
+<script>
+      function handleOnClick(event) {
+          alert('Onclick clicked');
+          
+          // सर्व .para1 क्लास असलेल्या एलिमेंट्सचा रंग हिरवा करणे
+          let x = document.querySelectorAll(".para1"); 
+          for(let i = 0; i < x.length; i++) {
+              x[i].style.color = "green";
+          }
+          
+          // विशिष्ट ID चा रंग लाल करणे
+          if(document.querySelector("#para3")) {
+              document.querySelector("#para3").style.color = "red";
+          }
+
+          document.querySelector("#blankPara").innerHTML = "Hello India";
+
+          // Dataset व्हॅल्यू कन्सोलमध्ये प्रिंट करणे
+          let currentTarget = event.currentTarget;
+          console.log('currentTarget', currentTarget);
+          console.log('Record ID:', currentTarget.dataset.recordId);
+          console.log('Record Name:', currentTarget.dataset.recordName);
+      }
+
+      function handleOnChange(inputElement) {
+          alert(inputElement.value);
+          inputElement.value = 'Vikas Kare'.toUpperCase();
+      }
+     
+      // 'Click me' बटनसाठी अचूक Event Listener रचना
+      function alertHello() {
+          alert('hello from listener');
+      }
+      
+      let once = {
+        once : true
+      }
+      
+      function dispatchCustomEvent() {
+      		
+            
+        let customEvent = new CustomEvent(
+            "Start", {
+                detail : {
+                    countyName : "India"
+                }
+            }
+        );
+        
+        let clickCustomEventbtn = document.querySelector("#customEvent");
+        
+        if(clickCustomEventbtn)  {
+        	
+            clickCustomEventbtn.addEventListener('Start', hadleStart);
+            clickCustomEventbtn.dispatchEvent(customEvent);
+        }
+       
+      }
+      
+      function hadleStart(event) { 
+      	
+        	alert(event.detail.countyName);
+      }
+
+      window.onload = function() {
+          let clickBtn = document.querySelector("#clickme");
+          if(clickBtn) {
+              clickBtn.addEventListener('click', alertHello, once);
+          }else {
+          	
+             clickBtn.removeEventListener('click', alertHello, once);
+          }
+          
+          
+      };
+</script>
+</body>
+</html>
