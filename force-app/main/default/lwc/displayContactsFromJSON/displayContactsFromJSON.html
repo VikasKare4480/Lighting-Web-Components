@@ -1,0 +1,17 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-27-2026
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card  variant="Narrow"  title="Show Contacts" icon-name="standard:contact">
+        <template if:true={arrayOfContactJSON} for:each={arrayOfContactJSON} for:item="contact" for:index="index">
+            <div key={contact.Id} class="slds-m-left_medium">
+                {contact.Id} | {contact.FirstName}  {contact.LastName} | {contact.Title}
+            </div>
+        </template> 
+        <p slot="footer">Card Footer</p>
+    </lightning-card>
+</template>

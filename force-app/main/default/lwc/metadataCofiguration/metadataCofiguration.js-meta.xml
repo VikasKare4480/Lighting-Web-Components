@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Metadata Componenet</masterLabel>
+    <description>Learning Metadata from this component</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <!-- role="inputOnly" -->
+            <property name="selectedRecordId" type="String" 
+                        label="Record Id"
+                        description="Select Record Id"/>
+        </targetConfig>
+        <targetConfig targets="lightning__RecordPage,lightning__AppPage">
+            <property name="objectApiName" type="String" description="Provide Object API name to develop the datatable"/>
+            <property name="fieldAPIName" type="String" 
+                        description="Provide comma seperated api names of fields to show in datatable"
+                        default="Id,Name"/>
+            <property name="dateOfBirth" type="String" label="Date of Birth" description="Enter date in YYYY-MM-DD format" />
+            <property name="userEmail" type="String" description="Current admin email"/>
+            <property name="noOfRecord" type="Integer" description="Current admin email"/>
+        </targetConfig>
+        <targetConfig targets="lightning__HomePage">
+            <property name="noOfRecord" type="Integer" description="Enter number of recoreds" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

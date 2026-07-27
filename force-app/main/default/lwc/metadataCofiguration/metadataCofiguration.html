@@ -1,0 +1,39 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-26-2026
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+
+<template>
+    <lightning-card  variant="Narrow"  title="Metadata Component" icon-name="standard:task">
+        <div class="slds-m-around_medium">
+            <p >
+                METADATA CONFIGURATION
+             </p>
+             <lightning-input type="text" variant="brand" name="First Name" label="FirstName"></lightning-input>
+            <lightning-input type="text" variant="brand" name="Last Name" label="LastName"></lightning-input>
+
+             Object api Names : {objectApiName}
+            <br>
+            Field API Names : {fieldAPIName}
+            <br>
+            Date of Birth  : {dateOfBirth}
+            <br>
+            User Email : {userEmail}
+            <br>
+            Number of Records to fetch : {noOfRecord}
+            <br>
+            Record ID : {recordId}
+        </div>  
+        <div class="slds-m-around_medium">
+            <lightning-button variant="brand" label="Submit task" title="Submit Task" onclick={handleClick}
+                style="align-content: center;"></lightning-button>
+        </div>
+        <div slot="footer">
+            Card Footer
+        
+        </div>
+    </lightning-card>
+</template>

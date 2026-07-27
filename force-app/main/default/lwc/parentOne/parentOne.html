@@ -6,6 +6,10 @@
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
 <template>
-    <c-child-one onclick={handleChildEvent}>
-    </c-child-one>
-</template> 
+    <p>PARENT COMPONENT</p>
+    <p onsuccess={handleChildEvent}>
+        <c-child-one></c-child-one>
+        <!-- THIS WAS default configuration bubbled:false, composed:false -->
+        <!-- <c-child-one onclick={handleChildEvent}></c-child-one> --> 
+    </p>
+</template>
