@@ -1,0 +1,30 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-28-2026
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card  variant="Narrow"  title="Contacts" icon-name="standard:contact">
+        <div class="slds-m-left_medium">
+            <template lwc:if={contactsToDisplay}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={contactsToDisplay}
+                    draft-values={draftValues}
+                    hide-checkbox-column
+                    columns={columns}
+                    onsave={handleSave}>
+                </lightning-datatable>
+            </template>
+            <template lwc:elseif={errors}>
+                <p class="slds-text-color_error">Error Loading Contacts...</p>
+            </template>
+            <template lwc:else>
+                <p>Loading contacts...</p>
+            </template>
+        </div>
+        <p slot="footer">Card Footer</p>
+    </lightning-card>
+</template>

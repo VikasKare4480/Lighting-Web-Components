@@ -1,0 +1,33 @@
+<!--
+  @description       : THIS WAS ASKEDED IN RANOSYS TECHNOLOGIES PVT. LTD.
+  @author            : Vikas Kare
+  @group             : 
+  @last modified on  : 07-28-2026
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Dynamic Form" icon-name="standard:record">
+        <div class="slds-p-around_medium">
+            <lightning-combobox
+                name="Select User Type"
+                label="Select User Type"
+                placeholder="Select user Type..."
+                options={userTypeOptions}
+                onchange={handleChange} >
+            </lightning-combobox>
+            <template lwc:if={isIndividual}>
+                <lightning-input label="First Name" data-field="firstName" onchange={handleFieldChange}></lightning-input>
+                <lightning-input label="Last Name" data-field="lastName" onchange={handleFieldChange}></lightning-input>
+                <lightning-input label="Date of Birth" type="date" data-field="dob" onchange={handleFieldChange}></lightning-input>
+            </template>
+            <template if:true={isBusiness}>
+                 <lightning-input label="Company Name" data-field="companyName" onchange={handleFieldChange}></lightning-input>
+                <lightning-input label="Tax ID" data-field="taxId" onchange={handleFieldChange}></lightning-input>
+                <lightning-input label="Industry" data-field="industry" onchange={handleFieldChange}></lightning-input>
+            </template>
+
+            <lightning-button variant="brand" label="Submit" title="Submit" onclick={handleSubmit}></lightning-button>
+
+            </div>
+    </lightning-card>
+</template>
