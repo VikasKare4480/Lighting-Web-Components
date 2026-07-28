@@ -1,0 +1,36 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-27-2026
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card  variant="Narrow"  title="Show All Contacts Info" icon-name="standard:contact">
+        <div class="slds-m-left_medium">
+            <template lwc:if={getContactJSON}>
+                <template for:each={getContactJSON} for:item="contact" for:index="index" >
+                    <div key={contact.Id} data-id={contact.Id} onclick={handleContactOnclick}>
+                        <div>
+                            <!-- SHOW THE INFORMATION -->
+                            <p>
+                                {contact.FirstName} {contact.LastName} 
+                            </p>
+                            <p>
+                                {contact.Title} | {contact.Email} | {contact.Phone}
+                            </p>
+                        </div>
+                        <div class="slds-media__figure" style="height: 50px;width: 50px;">
+                            <!-- SHOW THE PICTURE -->
+                            <img src={contact.Picture__c} alt={contact.Id}>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template lwc:else>
+                <p>No data availble to Display</p>
+            </template>
+        </div>
+        <p slot="footer">Card Footer</p>
+    </lightning-card>
+</template>
