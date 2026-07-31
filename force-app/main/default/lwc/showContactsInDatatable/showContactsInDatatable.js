@@ -18,7 +18,7 @@ export default class ShowContactsInDatatable extends LightningElement  {
    errors;
    draftValues = [];
    wiredContactsResult;
-    columns = COLUMNS;
+columns = COLUMNS;
 
    @wire(getContacts)
    getcontactsData(result){
