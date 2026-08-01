@@ -1,0 +1,34 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-21-2026
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Account Contacts" icon-name="standard:contact">
+        <div class="slds-var-m-around_medium">
+            <!-- डेटा टेबल (डेटा उपलब्ध असेल तेव्हाच दिसेल) -->
+            <template if:true={contacts}>
+                <div style="height: 300px;">
+                    <lightning-datatable
+                        key-field="id"
+                        data={contacts}
+                        columns={columns}
+                        hide-checkbox-column>
+                    </lightning-datatable>
+                </div>
+            </template>
+
+            <!-- जर कॉन्टॅक्ट्स नसतील तर मेसेज -->
+            <template if:true={noRecordsFound}>
+                <p class="slds-text-align_center slds-text-color_weak">No contacts found for this account.</p>
+            </template>
+
+            <!-- एरर आल्यास मेसेज -->
+            <template if:true={error}>
+                <p class="slds-text-color_error">Error loading contacts.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

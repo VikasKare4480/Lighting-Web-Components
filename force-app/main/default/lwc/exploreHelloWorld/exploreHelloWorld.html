@@ -1,0 +1,25 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-20-2026
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+
+<template>
+    <p>Hey {firstName} {lastName}! How are you?</p>
+    <template if:true={data}>
+        <div>
+            <template for:each={data} for:item="con">
+                <p key={con.Id}>
+                    <strong>Name : </strong> {con.Name} |
+                    <strong>Email:</strong> {con.Email} | 
+                    <strong>Phone:</strong> {con.Phone}
+                </p>
+            </template>
+        </div>
+    </template>
+    <template if:true={error}>
+        {data}
+    </template>
+</template>

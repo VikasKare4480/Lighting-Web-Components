@@ -1,0 +1,16 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-25-2026
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-input onchange={handleFirstName} type="text" variant="standard" name="FirstName" label="First Name" placeholder="Enter first Name..."></lightning-input>
+    <lightning-input onchange={handleLastName} type="text" variant="standard" name="LastName" label="Last Name" placeholder="Enter last Name..."></lightning-input>
+    <lightning-input onchange={handleEmailName} type="email" name="Email" label="Email address" placeholder="abc@gmail.com"></lightning-input>
+    <lightning-input onchange={handlePhoneName} type="phone" label="Phone" name="Phone" placeholder="9999999999"></lightning-input>
+    <lightning-input onchange={handTitleName} type="text" name="Title" label="Tite"></lightning-input>
+    <lightning-input onchange={handDeptName} type="text" name="Department" label="Department"></lightning-input>
+    <lightning-button variant="brand" style="align-items: center;" label="Create Contact" title="Contacct Name" onclick={handleCreateContact}></lightning-button>
+</template>

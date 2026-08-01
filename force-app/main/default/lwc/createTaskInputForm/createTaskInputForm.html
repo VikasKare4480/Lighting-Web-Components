@@ -1,0 +1,23 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-27-2026
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>  
+    <lightning-input type="text" variant="standard" name="Name" label="Enter Task Name" onchange={handleTaskName}></lightning-input>
+    <lightning-combobox
+        name="Priority"
+        label="Priority"
+        placeholder="Status"
+        options={taskPriorityOptions}
+        onchange={handlePriorityChange} >
+    </lightning-combobox>
+    <lightning-button variant="brand" label="Add Task" title="Add Task" onclick={handleAddTask}></lightning-button>
+         <template for:each={taskList} for:item="task">
+            <li key={task.Name}>
+                {task.Name} | {task.Priority}
+            </li>
+        </template>
+</template>

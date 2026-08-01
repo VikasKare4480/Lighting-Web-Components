@@ -1,0 +1,26 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-29-2026
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card  variant="Narrow"  title="Lightning Record Form" icon-name="standard:account">
+        <div class="slds-p-around_medium">
+            <!-- 
+                attribute ----- values
+                layout-type = Compact, Full
+                mode = view, edit, readonly
+                fields OR layout-type 
+            -->
+            <lightning-record-form
+              columns="1"
+              layout-type="Compact"
+              object-api-name={objectApiName}
+              record-id={recordId}
+              mode="edit"
+            ></lightning-record-form>
+        </div>
+    </lightning-card>
+</template>

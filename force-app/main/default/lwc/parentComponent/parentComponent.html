@@ -1,0 +1,20 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-20-2026
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <c-child-component first-name="VikasFromParent" onuserdata={receiveChildDispathcedData}>
+    </c-child-component>
+    <lightning-button label="Click Me" onclick={handleClickMe}></lightning-button>
+
+    <template if:true={userNewCopy}>
+        <div>
+            <div>UserName :  {user.userName}</div>
+            <div>Password : {user.password}</div>
+            <div></div>
+        </div>
+    </template>
+</template>
