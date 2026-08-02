@@ -1,3 +1,19 @@
 <template>
-    
+    <lightning-card  variant="Narrow"  title="Hello" icon-name="standard:account">
+        <div class="slds-p-around_large">
+
+            <!-- Account Form -->
+            <lightning-input type="text" variant="brand" name="Name" label="Account Name" required onchange={handleOnchangeAccount}></lightning-input>
+
+            <!-- Contact Form -->
+            <lightning-input type="text" variant="brand" name="FirstName" label="First Name" required onchange={handleOnchangeContact}></lightning-input>
+            <lightning-input  ning-input type="text" variant="brand" name="LastName" label="Last Name" required onchange={handleOnchangeContact}></lightning-input>
+            <lightning-input type="Email" variant="standard" name="Email" label="Email" required onchange={handleOnchangeContact}></lightning-input>
+        </div>
+
+        <div class="slds-p-around_large">
+            <lightning-button variant="brand" label="Create Records" title="Create Records" onclick={handleCreateRecord}></lightning-button>
+        </div>
+        <div slot="footer"></div>
+    </lightning-card>
 </template>
