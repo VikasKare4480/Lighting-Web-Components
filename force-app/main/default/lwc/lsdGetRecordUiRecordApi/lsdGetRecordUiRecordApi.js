@@ -1,5 +1,5 @@
 import { LightningElement, api, wire } from 'lwc';
-import { createRecord, getRecord, getFieldValue } from 'lightning/uiRecordApi'
+import { getRecord, getFieldValue } from 'lightning/uiRecordApi'
 import CURRENCY_CODE from '@salesforce/i18n/currency'
 
 // IMPORT ACCOUNT OBJECT SCHEMA
@@ -19,6 +19,11 @@ export default class LsdGetRecordUiRecordApi extends LightningElement {
     @api objectApiName;
     accountData = '';
     error;
+
+    constructor() {
+        super();
+        console.log('ACCOUNT_OBJECT--> ' , ACCOUNT_OBJECT);
+    }
 
     @wire(getRecord, { 
         recordId : '$recordId', 
@@ -46,7 +51,8 @@ export default class LsdGetRecordUiRecordApi extends LightningElement {
     */
 
     get getName() {
-        return getFieldValue(this.accountData, ACCOUNT_NAME_FIELD);
+        return this.accountData.fields.Name.value;
+        // return getFieldValue(this.accountData, ACCOUNT_NAME_FIELD);
     }
 
     get getPhone() {
