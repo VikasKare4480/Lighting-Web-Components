@@ -17,6 +17,7 @@ export default class LdsCreateUiRecordApi extends LightningElement {
         event.preventDefault(); 
         let {name, value} = event.target; 
         this.fieldsAccount[name] = value;
+
         console.log('fields Account-->> ', JSON.stringify(this.fieldsAccount));
     }
 
@@ -84,7 +85,7 @@ export default class LdsCreateUiRecordApi extends LightningElement {
 
     handleValidate() {
 
-        const allValid = [...this.template.querySelectorAll("lightning-input")].reduce(
+        const allValid = [...this.template.querySelectorAll("lightning-input", "ightning-combobox")].reduce(
         (validSoFar, inputCmp) => {
             inputCmp.reportValidity();
             return validSoFar && inputCmp.checkValidity();

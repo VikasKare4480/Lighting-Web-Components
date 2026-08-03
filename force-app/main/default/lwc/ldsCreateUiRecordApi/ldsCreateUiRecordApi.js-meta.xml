@@ -2,6 +2,7 @@
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>67.0</apiVersion>
     <isExposed>true</isExposed>
+    <masterLabel>LDS - Create Record(uiRecordAPi)</masterLabel>
     <targets>
         <target>lightning__AppPage</target>
     </targets>

@@ -1,0 +1,36 @@
+<template>
+
+    <lightning-card  variant="Narrow"  title="LDS Get Record" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+            <template lwc:if={accountData}>
+
+                <div style="text-align: center;">
+                    Account Info
+                </div>
+                <p>
+                    Account Name : {getName} 
+                </p>
+                <p>
+                    Phone : {getPhone} 
+                </p>
+                <p>
+                    Rating : {getRating} 
+                </p>
+                <p>
+                    Industry : {getIndustry} 
+                </p>
+                <p> 
+                    Revenue : {getannualRevenue} 
+                </p>
+            </template>
+            <template lwc:else>
+                <div>
+                    No data found for the 
+                    <div>
+                        Obeject : {objectApiName} and Id : {recordId} 
+                    </div> 
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
