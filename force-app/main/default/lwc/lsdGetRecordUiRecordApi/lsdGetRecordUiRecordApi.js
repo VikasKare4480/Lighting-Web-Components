@@ -33,7 +33,7 @@ export default class LsdGetRecordUiRecordApi extends LightningElement {
                     ACCOUNT_INDUSTRY_FIELD,
                     ACCOUNT_ANNUAL_REVENUE_FIELD]
     })
-    accountDatawire({error, data}) {
+    accountDatawire({data, error}) {
         if(data) {
             this.accountData = data;
         }

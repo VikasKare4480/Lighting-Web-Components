@@ -1,0 +1,16 @@
+<template>
+    <lightning-card  variant="Narrow"  title="LDS Update Record" icon-name="standard:account">
+        <lightning-spinner alternative-text="Loading..." size="small" if:true={loading}></lightning-spinner>
+        <div class="slds-m-around_medium">
+            <lightning-combobox
+                name="Rating"
+                label="Rating"
+                options={ratingOptions}
+                onchange={handleChange} >
+            </lightning-combobox>
+            <lightning-input type="text" variant="standard" name="Name" label="Account Name" placeholder="Enter Account Name here..." onchange={handleChange} required></lightning-input>
+            <lightning-button variant="brand" label="Update Account" title="Update Account" onclick={handleAccountUpdate} style="padding: 1px;"></lightning-button>
+        </div>
+        <div slot="footer">Card Footer</div>
+    </lightning-card>
+</template>
