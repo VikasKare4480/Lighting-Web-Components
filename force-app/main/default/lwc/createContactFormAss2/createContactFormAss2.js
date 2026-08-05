@@ -16,7 +16,7 @@ export default class CreateContactFormAss2 extends LightningElement {
         this.contact[event.target.name] = event.target.value;
     }
 
-    handlePhoneName() {
+    handlePhoneName(event) {
         this.contact[event.target.name] = event.target.value;
     }
 

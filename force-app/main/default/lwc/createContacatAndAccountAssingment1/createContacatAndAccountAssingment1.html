@@ -1,0 +1,20 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Create Accoun and Contact" icon-name="standard:account">
+        <div class="slds-p-around_medium">
+            <div>
+                <!-- Account Field Input -->
+                <lightning-input type="text" variant="standard" name="Name" label="Account name"  required onchange={handleAccountInput}></lightning-input>
+                <lightning-input type="text" variant="standard" name="Phone" label="Phone" placeholder="Enter Phone...." onchange={handleAccountInput}></lightning-input>
+                <!-- Contact Field Input -->
+                <lightning-input type="text" variant="standard" name="FirstName" label="First Name"  required onchange={handleContactInput}></lightning-input>
+                <lightning-input type="text" variant="standard" name="LastName" label="Last Name"  required onchange={handleContactInput}></lightning-input>
+                <lightning-input type="email" variant="standard" name="Email" label="Email" required onchange={handleContactInput}></lightning-input>
+                <lightning-input type="phone" variant="standard" name="Phone" label="Phone" required onchange={handleContactInput}></lightning-input>
+            </div>
+           <div>
+                <lightning-button variant="brand" label="Create Account With Contact" title="Submit" onclick={handleCreateAccount}></lightning-button>
+             </div>
+        </div>
+       
+    </lightning-card>
+</template>
