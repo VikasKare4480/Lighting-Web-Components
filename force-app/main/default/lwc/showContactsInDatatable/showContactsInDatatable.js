@@ -22,7 +22,6 @@ columns = COLUMNS;
 
    @wire(getContacts)
    getcontactsData(result){
-
     const {data, error} = result;
         if(data) {
             this.wiredContactsResult = result;
@@ -55,7 +54,7 @@ columns = COLUMNS;
                 new ShowToastEvent( {
                     title : 'Error Updating contacts',
                     message : error.body ? error.body.message : error.message,
-                    varient : 'error'
+                    variant : 'error'
                 })
             );
         }

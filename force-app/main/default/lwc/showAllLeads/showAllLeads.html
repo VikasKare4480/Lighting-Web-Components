@@ -1,0 +1,15 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Hello" icon-name="standard:account">
+       <div class="slds-m-around_medium">
+            <template if:true={leadData}>
+                <lightning-modal-header label="All Leads">
+                </lightning-modal-header>
+                <template for:each={leadData} for:item="lead" for:index="index">
+                    <div key={leadData.Id}>
+                        <p>Name : {lead.Name}  || Title : {lead.Title}</p>
+                    </div>
+                </template>
+            </template>
+       </div>
+    </lightning-card>
+</template>
