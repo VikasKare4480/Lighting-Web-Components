@@ -1,4 +1,4 @@
-import { LightningElement, wire } from 'lwc';
+import { LightningElement } from 'lwc';
 import { createRecord } from 'lightning/uiRecordApi'
 import ACCOUNT_OBJECT from '@salesforce/schema/Account'
 import CONTACT_OBJECT from '@salesforce/schema/Contact'
@@ -21,6 +21,14 @@ export default class createContacatAndAccountAssingment1 extends LightningElemen
     }
 
     handleCreateAccount(event) {    
+
+        let validate = this.validateForm();
+
+        if(!validate) {
+            console.log('Please Enter all the  fields')
+            return;
+        }
+
         console.log('accountInputData : ' , JSON.stringify(this.accountInputData));
         console.log('contactInputData : ' , JSON.stringify(this.contactInputData));
 
@@ -45,7 +53,7 @@ export default class createContacatAndAccountAssingment1 extends LightningElemen
 
     createContact(accountId) {
 
-        // if(accountId) {
+        if(accountId) {
             const fields = this.contactInputData;
             fields[CONTACT_ACCOUNTID_FIELD.fieldApiName] = accountId;
             const inputRecord  = {
@@ -55,8 +63,8 @@ export default class createContacatAndAccountAssingment1 extends LightningElemen
             createRecord(inputRecord)
             .then( (result) => {
                 console.log('result Contact : ' , JSON.stringify(result))
+                this.showToastEvent('Success', 'Contact Created Sucessfully', 'success');
                 console.log('Contact Id : ', result.id);
-                
             })
             .catch( (error) => {
                 console.error(error);
@@ -65,7 +73,7 @@ export default class createContacatAndAccountAssingment1 extends LightningElemen
             .finally( () => {
                 console.log('Finally Contact Creation')
             }); 
-        // }
+        }
     }
 
     showToastEvent(title, message, variant) {
@@ -79,4 +87,17 @@ export default class createContacatAndAccountAssingment1 extends LightningElemen
             )
         );
     }
+
+    validateForm() {
+
+        const allValid = [...this.template.querySelectorAll("lightning-input")].reduce(
+        (validSoFar, inputCmp) => {
+            inputCmp.reportValidity();
+            return validSoFar && inputCmp.checkValidity();
+        },
+        true,
+        );
+        return allValid;
+    }
 }   
+
